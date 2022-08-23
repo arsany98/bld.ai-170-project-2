@@ -4,7 +4,7 @@ import { Rating } from "react-simple-star-rating";
 
 function Course(props) {
   return (
-    <article className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <article>
       <a href={props.course.url}>
         <div className={styles.imgContainer}>
           <div className={styles.imgHover}></div>
