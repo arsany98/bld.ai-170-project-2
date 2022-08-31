@@ -1,5 +1,5 @@
 import "./App.css";
-import CoursesList from "./CoursesList";
+import CoursesList from "./components/CoursesList";
 import db from "./courses_db.json";
 
 function App() {

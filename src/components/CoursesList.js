@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "./CoursesList.module.css";
 import "./CarouselStyles.css";
+
 function CoursesList(props) {
   return (
     <>
