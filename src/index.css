@@ -1,13 +1,22 @@
+@font-face {
+  font-family: "SuisseWorks";
+  src: url("https://www.udemy.com/staticx/udemy/fonts/SuisseWorks-Bold-v1.woff2")
+    format("woff");
+}
+@font-face {
+  font-family: "udemy sans";
+  src: url("https://www.udemy.com/staticx/udemy/fonts/Udemy-Sans-Bold-v1.woff2")
+    format("woff");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "udemy sans";
+  src: url("https://www.udemy.com/staticx/udemy/fonts/Udemy-Sans-Regular-v1.woff2")
+    format("woff");
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: udemy sans, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
 }
