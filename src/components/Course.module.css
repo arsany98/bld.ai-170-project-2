@@ -48,6 +48,7 @@ article p {
 .rating {
   margin-bottom: 4px;
   display: flex;
+  align-items: center;
   overflow: hidden;
 }
 .bestSeller {

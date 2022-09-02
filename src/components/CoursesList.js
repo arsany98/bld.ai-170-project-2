@@ -35,17 +35,17 @@ function CoursesList(props) {
             md: {
               breakpoint: { min: 768, max: 992 },
               items: 3,
-              slidesToSlide: 3,
+              slidesToSlide: 2,
             },
             lg: {
               breakpoint: { min: 992, max: 1200 },
               items: 4,
-              slidesToSlide: 4,
+              slidesToSlide: 3,
             },
             xl: {
               breakpoint: { min: 1200, max: 10000 },
-              items: 6,
-              slidesToSlide: 6,
+              items: 5,
+              slidesToSlide: 4,
             },
           }}
         >
