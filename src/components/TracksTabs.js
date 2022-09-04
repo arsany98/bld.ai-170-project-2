@@ -16,7 +16,10 @@ const renderFetchResult = (state) => {
     return <div>{state.Error}</div>;
   } else if (state.Data.tracks) {
     return (
-      <Tabs selectedTabClassName={styles.selected}>
+      <Tabs
+        className={styles.tabsContainer}
+        selectedTabClassName={styles.selected}
+      >
         <TabList className={styles.tabs}>
           {state.Data.tracks.map((track) => (
             <Tab key={track.id} className={styles.tab}>

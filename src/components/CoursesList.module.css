@@ -23,3 +23,14 @@
 .courseItem {
   padding: 0 8px;
 }
+@media only screen and (max-width: 600px) {
+  .trackHead {
+    display: none;
+  }
+}
+
+.noCourses {
+  color: var(--grey);
+  text-align: center;
+  margin: 64px 0;
+}

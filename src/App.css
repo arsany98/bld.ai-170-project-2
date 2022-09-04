@@ -3,9 +3,37 @@
   --dark: #1c1d1f;
   --light-grey: #d1d7dc;
   --grey: #6a6f73;
+  --purple: #5624d0;
+
   --max-width: 1340px;
   --min-width: 300px;
 }
+h1 {
+  margin: 8px 0px;
+  font-family: SuisseWorks;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+}
+h2 {
+  font-family: udemy sans;
+  line-height: 1.2;
+  font-size: 24px;
+  color: var(--dark);
+}
+.regFont {
+  font-family: udemy sans;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: 14px;
+}
+.boldFont {
+  font-family: udemy sans;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 14px;
+}
+
 .mybtn {
   cursor: pointer;
   border: 0;
@@ -17,6 +45,13 @@
 .whiteBg {
   background-color: transparent;
 }
+.blackBg.box:hover {
+  background-color: black;
+}
+.blackBg {
+  background-color: var(--dark);
+  color: white;
+}
 .box {
   border: 1px solid var(--dark);
   margin: 0 4px;
@@ -25,10 +60,22 @@
   width: 80px;
   font-size: 14px;
 }
-.App {
-  max-width: var(--max-width);
-  min-width: var(--min-width);
-
-  margin: auto;
-  padding: 0 24px;
+.linkSpace {
+  width: 48px;
+}
+.icon.box {
+  width: 40px;
+  padding: 0;
+}
+.link {
+  padding: 0 12px;
+  height: 48px;
+}
+.link:hover {
+  color: var(--purple);
+}
+@media only screen and (max-width: 800px) {
+  .link:hover {
+    color: initial;
+  }
 }
