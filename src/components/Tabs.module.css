@@ -1,0 +1,28 @@
+.tab:hover {
+  color: var(--dark);
+}
+.tab {
+  list-style: none;
+  cursor: pointer;
+  font-family: udemy sans;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 16px;
+  padding: 8px 4px;
+  color: var(--grey);
+  background-color: transparent;
+  min-width: max-content;
+}
+.tab:focus-visible {
+  outline: none;
+}
+.selected {
+  color: var(--dark);
+}
+.tabs {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+}

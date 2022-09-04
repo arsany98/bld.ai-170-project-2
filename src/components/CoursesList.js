@@ -50,7 +50,7 @@ function CoursesList(props) {
           }}
         >
           {props.track.courses.map((c) => (
-            <Course key={c.id} course={c}></Course>
+            <Course key={c} id={c}></Course>
           ))}
         </Carousel>
       </div>

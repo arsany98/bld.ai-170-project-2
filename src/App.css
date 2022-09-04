@@ -23,6 +23,7 @@
   padding: 0 12px;
   height: 40px;
   width: 80px;
+  font-size: 14px;
 }
 .App {
   max-width: var(--max-width);
