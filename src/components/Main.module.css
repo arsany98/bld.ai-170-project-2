@@ -1,3 +1,16 @@
+.main h1 {
+  margin: 8px 0px;
+  font-family: SuisseWorks;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+}
+.main h2 {
+  font-family: udemy sans;
+  line-height: 1.2;
+  font-size: 24px;
+  color: var(--dark);
+}
 .main {
   max-width: var(--max-width);
   min-width: var(--min-width);

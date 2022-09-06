@@ -4,34 +4,11 @@
   --light-grey: #d1d7dc;
   --grey: #6a6f73;
   --purple: #5624d0;
-
+  --hover-purple: #401b9c;
+  --light-purple: #cec0fc;
+  --bg-purble: #a435f0;
   --max-width: 1340px;
   --min-width: 300px;
-}
-h1 {
-  margin: 8px 0px;
-  font-family: SuisseWorks;
-  font-size: 24px;
-  letter-spacing: -0.5px;
-  line-height: 1.25;
-}
-h2 {
-  font-family: udemy sans;
-  line-height: 1.2;
-  font-size: 24px;
-  color: var(--dark);
-}
-.regFont {
-  font-family: udemy sans;
-  font-weight: 400;
-  line-height: 1.4;
-  font-size: 14px;
-}
-.boldFont {
-  font-family: udemy sans;
-  font-weight: 700;
-  line-height: 1.2;
-  font-size: 14px;
 }
 
 .mybtn {

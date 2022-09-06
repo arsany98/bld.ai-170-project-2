@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
+import React from "react";
 import Course from "./Course";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "./CoursesList.module.css";
 import "./CarouselStyles.css";
-import DbContext from "../contexts/DbContext";
 import { useSearchParams } from "react-router-dom";
-function CoursesList(props) {
+import withData from "../contexts/WithData";
+
+function CoursesList({ track, courses }) {
   const [searchParams] = useSearchParams();
-  let db = useContext(DbContext);
   let search = searchParams.get("search");
-  let filteredCourses = props.track.courses.filter((cId) => {
+  let filteredCourses = track.courses.filter((cId) => {
     if (!search) return true;
-    let course = db.Data.courses.find((course) => course.id === cId);
+    let course = courses.find((course) => course.id === cId);
     return course.title.toLowerCase().includes(search.toLowerCase());
   });
 
@@ -21,11 +21,11 @@ function CoursesList(props) {
       <div className={styles.trackContainer}>
         <div className={styles.trackHead}>
           <h2>
-            <b>{props.track.header}</b>
+            <b>{track.header}</b>
           </h2>
-          <p>{props.track.description}</p>
+          <p>{track.description}</p>
           <button className="mybtn whiteBg box">
-            <b>Explore {props.track.name}</b>
+            <b>Explore {track.name}</b>
           </button>
         </div>
         {filteredCourses.length === 0 ? (
@@ -71,4 +71,4 @@ function CoursesList(props) {
   );
 }
 
-export default CoursesList;
+export default withData(CoursesList);

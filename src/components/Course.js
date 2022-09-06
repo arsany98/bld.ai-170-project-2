@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./Course.module.css";
 import { Rating } from "react-simple-star-rating";
 import { Link } from "react-router-dom";
-import DbContext from "../contexts/DbContext";
+import withData from "../contexts/WithData";
 
 function render(instructors) {
   let str = "";
@@ -13,12 +13,11 @@ function render(instructors) {
     });
   return str;
 }
-function Course(props) {
-  let db = useContext(DbContext);
-  let course = db.Data.courses.find((c) => c.id === props.id);
+function Course({ id, courses }) {
+  let course = courses.find((c) => c.id === id);
   return (
     <article>
-      <Link to={`/courses/${props.id}`}>
+      <Link to={`/courses/${id}`}>
         <div className={styles.imgContainer}>
           <div className={styles.imgHover}></div>
           <img alt={course.title} src={course.image} />
@@ -44,7 +43,7 @@ function Course(props) {
               ({course.rateCount.toLocaleString("en-US")})
             </span>
           </div>
-          <div>
+          <div className={styles.price}>
             <b>E£{course.price.toLocaleString("en-US")}</b>
           </div>
 
@@ -61,4 +60,4 @@ function Course(props) {
   );
 }
 
-export default Course;
+export default withData(Course);

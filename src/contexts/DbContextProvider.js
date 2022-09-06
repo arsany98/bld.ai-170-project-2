@@ -23,7 +23,7 @@ function DbContextProvider({ children }) {
         return { Data: {}, IsLoading: false, Error: action.payload };
       }
     },
-    { Data: {}, IsLoading: false, Error: "" }
+    { Data: undefined, IsLoading: false, Error: "" }
   );
   useEffect(() => {
     dispatch({ type: "SEND_REQUEST" });

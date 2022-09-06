@@ -65,13 +65,13 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <button className="mybtn whiteBg link regFont">Categories</button>
+            <button className="mybtn whiteBg link">Categories</button>
           </li>
           <li className={styles.search}>
             <form action="" ref={searchFormRef}>
               <input
                 ref={inputRef}
-                className={`${styles.textInput} regFont`}
+                className={styles.textInput}
                 type="text"
                 placeholder="Search for anything"
               />
@@ -81,14 +81,10 @@ function Navbar() {
             </form>
           </li>
           <li className={styles.hideAt1080}>
-            <button className="mybtn whiteBg link regFont">
-              Udemy Business
-            </button>
+            <button className="mybtn whiteBg link">Udemy Business</button>
           </li>
           <li className={styles.hideAt920}>
-            <button className="mybtn whiteBg link regFont">
-              Teach on Udemy
-            </button>
+            <button className="mybtn whiteBg link">Teach on Udemy</button>
           </li>
           <li>
             <button className="mybtn whiteBg link">
@@ -96,10 +92,14 @@ function Navbar() {
             </button>
           </li>
           <li>
-            <button className="mybtn whiteBg boldFont box">Log in</button>
+            <button className="mybtn whiteBg box">
+              <b>Log in</b>
+            </button>
           </li>
           <li>
-            <button className="mybtn blackBg boldFont box">Sign up</button>
+            <button className="mybtn blackBg box">
+              <b>Sign up</b>
+            </button>
           </li>
           <li>
             <button className="mybtn whiteBg icon box">

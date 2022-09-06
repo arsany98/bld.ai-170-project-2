@@ -13,6 +13,7 @@
 .trackHead p {
   margin-bottom: 16px;
   max-width: 800px;
+  font-size: 16px;
   line-height: 1.4;
   overflow: hidden;
   text-overflow: ellipsis;
