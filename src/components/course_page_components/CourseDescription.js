@@ -16,8 +16,8 @@ function CourseDescription({ id, courses }) {
           <b>Requirements</b>
         </h2>
         <ul>
-          {course.requirements.map((r, index) => (
-            <li key={index}>{r}</li>
+          {course.requirements.map((r) => (
+            <li key={r.id}>{r.title}</li>
           ))}
         </ul>
       </div>
@@ -45,8 +45,8 @@ function CourseDescription({ id, courses }) {
               <b>Who this course is for:</b>
             </h2>
             <ul>
-              {course.who_this_course_is_for.map((r, index) => (
-                <li key={index}>{r}</li>
+              {course.who_this_course_is_for.map((w) => (
+                <li key={w.id}>{w.title}</li>
               ))}
             </ul>
           </div>

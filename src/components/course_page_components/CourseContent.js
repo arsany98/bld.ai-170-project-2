@@ -26,10 +26,10 @@ function CourseContent({ id, courses }) {
           <b>What you'll learn</b>
         </h2>
         <Grid container spacing={1}>
-          {course.what_you_will_learn.map((i, index) => (
-            <Grid item key={index} xs={12} sm={6} display="flex">
+          {course.what_you_will_learn.map((i) => (
+            <Grid item key={i.id} xs={12} sm={6} display="flex">
               <Check fontSize="inherit" sx={{ mr: 2, fontSize: 16 }} />
-              <Box>{i}</Box>
+              <Box>{i.title}</Box>
             </Grid>
           ))}
         </Grid>

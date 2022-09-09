@@ -25,7 +25,7 @@ function Instructor({ instructor }) {
       <div className={styles.imgAndStats}>
         <img
           className={styles.userImage}
-          src={instructor.image_100x100}
+          src={instructor.image}
           alt={instructor.initials}
         />
         <Stack>

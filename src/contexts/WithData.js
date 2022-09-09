@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import React from "react";
 import { useContext } from "react";
 import DbContext from "./DbContext";
@@ -7,11 +8,7 @@ const withData =
   ({ ...props }) => {
     const db = useContext(DbContext);
     if (db.IsLoading) {
-      return (
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      );
+      return <CircularProgress color="inherit" />;
     } else if (db.Error) {
       return <div>{db.Error}</div>;
     } else if (db.Data) {

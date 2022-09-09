@@ -64,6 +64,7 @@
 .videoInfoList {
   flex-direction: row;
   gap: 16px;
+  flex-wrap: wrap;
 }
 @media only screen and (max-width: 1180px) {
   .header {

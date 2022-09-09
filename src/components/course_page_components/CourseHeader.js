@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styles from "./CourseHeader.module.css";
 import withData from "../../contexts/WithData";
 import {
@@ -11,7 +11,22 @@ import {
 import { Box, Breadcrumbs, Link, Rating, Stack } from "@mui/material";
 function CourseHeader({ id, courses }) {
   const course = courses.find((c) => c.id === id);
+  const [extraLang, setextraLang] = useState();
+
   let date = course.last_update_date.split("-");
+  let showMoreRef = useRef(null);
+  const showExtraLanguages = () => {
+    showMoreRef.current.remove();
+    setextraLang(
+      <span>
+        {course.caption_languages
+          .slice(2)
+          .map((i, index) =>
+            index < course.caption_languages.length - 3 ? `${i}, ` : i
+          )}
+      </span>
+    );
+  };
   return (
     <header className={styles.darkBg}>
       <div className={styles.headerContainer}>
@@ -25,9 +40,9 @@ function CourseHeader({ id, courses }) {
               color="white"
               sx={{ fontSize: 14, mb: 1 }}
             >
-              {course.topics.map((t, index) => (
+              {course.topics.map((t) => (
                 <Link
-                  key={index}
+                  key={t.id}
                   href="#"
                   color="var(--light-purple)"
                   underline="none"
@@ -37,7 +52,7 @@ function CourseHeader({ id, courses }) {
                     },
                   }}
                 >
-                  <b>{t}</b>
+                  <b>{t.topic}</b>
                 </Link>
               ))}
             </Breadcrumbs>
@@ -56,16 +71,16 @@ function CourseHeader({ id, courses }) {
           <div style={{ fontSize: 19, marginBottom: 16 }}>
             {course.headline}
           </div>
-          <div>
-            {course.bestseller ? (
-              <div className={styles.bestSeller}>
-                <b>Bestseller</b>
-              </div>
-            ) : (
-              <></>
-            )}
-          </div>
           <Stack direction="row" spacing={1} alignItems="center">
+            <div>
+              {course.bestseller ? (
+                <div className={styles.bestSeller}>
+                  <b>Bestseller</b>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
             <a href="#reviews" style={{ textDecoration: "none" }}>
               <Stack direction="row" spacing={0.5} alignItems="center">
                 <Box color="var(--light-yellow)">
@@ -95,24 +110,40 @@ function CourseHeader({ id, courses }) {
           <div>
             Created by{" "}
             {course.instructors.map((i, index) => (
-              <>
+              <span key={i.url}>
                 <span className={styles.link}>{i.title}</span>
                 {index < course.instructors.length - 1 ? ", " : ""}
-              </>
+              </span>
             ))}
           </div>
           <Box display="flex" className={styles.videoInfoList}>
-            <div>
+            <div style={{ whiteSpace: "nowrap" }}>
               <NewReleases fontSize="inherit" sx={{ mr: 1, fontSize: 16 }} />
               Last updated {parseInt(date[1])}/{parseInt(date[0])}
             </div>
-            <div>
+            <div style={{ whiteSpace: "nowrap" }}>
               <Language fontSize="inherit" sx={{ mr: 1, fontSize: 16 }} />
               {course.locale}
             </div>
             <div>
               <ClosedCaption fontSize="inherit" sx={{ mr: 1, fontSize: 16 }} />
-              {course.caption_languages}
+              {course.caption_languages.length > 2 ? (
+                <>
+                  {course.caption_languages.slice(0, 2).map((i) => `${i}, `)}
+                  <button
+                    className={styles.linkBtn}
+                    ref={showMoreRef}
+                    onClick={showExtraLanguages}
+                  >
+                    {course.caption_languages.length - 2} more
+                  </button>
+                  {extraLang}
+                </>
+              ) : (
+                course.caption_languages.map((i, index) =>
+                  index < course.caption_languages.length - 1 ? `${i}, ` : i
+                )
+              )}
             </div>
           </Box>
           <div className={styles.purchase}>
