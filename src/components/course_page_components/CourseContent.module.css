@@ -1,0 +1,20 @@
+.learnGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+.linkBtn {
+  text-decoration: underline;
+  border: 0;
+  background-color: white;
+  color: var(--purple);
+  padding: 0;
+}
+@media only screen and (max-width: 600px) {
+  .learnGrid {
+    grid-template-columns: 1fr;
+  }
+  .info {
+    display: none;
+  }
+}

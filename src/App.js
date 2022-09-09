@@ -1,10 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Main from "./components/Main";
+import Main from "./components/home_page_components/Main";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import CoursePage from "./components/CoursePage";
+import CoursePage from "./components/course_page_components/CoursePage";
 import DbContextProvider from "./contexts/DbContextProvider";
 
 function App() {

@@ -2,8 +2,8 @@ import React from "react";
 import CoursesList from "./CoursesList";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import styles from "./Tabs.module.css";
-import withData from "../contexts/WithData";
+import styles from "./TracksTabs.module.css";
+import withData from "../../contexts/WithData";
 
 function TracksTabs({ tracks }) {
   return (

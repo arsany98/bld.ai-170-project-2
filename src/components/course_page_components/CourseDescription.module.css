@@ -1,0 +1,8 @@
+.showbtn {
+  border: 0;
+  color: var(--purple);
+  background-color: white;
+}
+.showbtn:hover {
+  color: var(--hover-purple);
+}

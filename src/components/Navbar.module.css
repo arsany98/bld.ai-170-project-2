@@ -6,6 +6,8 @@
   margin-bottom: 0;
   width: 100%;
   min-width: var(--min-width);
+  background-color: white;
+  z-index: 3;
 }
 .udemyLogo {
   height: 34px;

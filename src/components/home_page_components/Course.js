@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./Course.module.css";
-import { Rating } from "react-simple-star-rating";
+import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
-import withData from "../contexts/WithData";
+import withData from "../../contexts/WithData";
+import { StarBorder } from "@mui/icons-material";
 
 function render(instructors) {
   let str = "";
@@ -31,13 +32,18 @@ function Course({ id, courses }) {
             <span style={{ color: "#b4690e", fontSize: "14" }}>
               <b>{Math.round(course.rating * 10) / 10}</b>
             </span>
+
             <Rating
-              style={{ margin: "0 4px", display: "flex" }}
-              ratingValue={(course.rating / 5) * 100}
-              size={14}
-              fillColor={"#e59819"}
-              readonly
-              allowHalfIcon
+              emptyIcon={
+                <StarBorder
+                  fontSize="inherit"
+                  style={{ color: "#e59819" }}
+                ></StarBorder>
+              }
+              value={course.rating}
+              sx={{ fontSize: 16, color: "#e59819" }}
+              readOnly
+              precision={0.5}
             />
             <span className={styles.subtextFont}>
               ({course.rateCount.toLocaleString("en-US")})
