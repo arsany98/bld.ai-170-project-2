@@ -16,8 +16,26 @@ function CourseContent({ id, courses }) {
   let contentLength = courseContent.estimated_content_length_text.split(":");
   let roundMin = (s) => {
     let t = s.split(":");
-    if (parseInt(t[1]) >= 30) return parseInt(t[0]) + 1;
-    else return parseInt(t[0]);
+    let h = 0;
+    let m = 0;
+    if (t.length === 3 && parseInt(t[0]) !== 0) {
+      h = parseInt(t[0]);
+      m = parseInt(t[1]);
+      s = parseInt(t[2]);
+      if (s >= 30) m++;
+    } else if (t.length === 2) {
+      m = parseInt(t[0]);
+      s = parseInt(t[1]);
+      if (s >= 30) m++;
+    }
+    let length = "";
+    if (h) {
+      length += h;
+      length += "hr ";
+    }
+    length += m;
+    length += "min";
+    return length;
   };
   return (
     <>
@@ -78,7 +96,7 @@ function CourseContent({ id, courses }) {
                   </div>
                   <div className={styles.info}>
                     {s.lecture_count} lectures •{" "}
-                    {roundMin(s.content_length_text)}min
+                    {roundMin(s.content_length_text)}
                   </div>
                 </div>
               </AccordionSummary>
