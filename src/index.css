@@ -1,3 +1,20 @@
+:root {
+  --light: #f5f5f5;
+  --dark: #1c1d1f;
+  --light-grey: #d1d7dc;
+  --grey: #6a6f73;
+  --purple: #5624d0;
+  --hover-purple: #401b9c;
+  --light-purple: #cec0fc;
+  --btn-purple: #a435f0;
+  --btn-hover-purple: #8710d8;
+  --dark-yellow: #b4690e;
+  --yellow: #e59819;
+  --light-yellow: #f3ca8c;
+  --max-width: 1340px;
+  --min-width: 300px;
+}
+
 @font-face {
   font-family: "SuisseWorks";
   src: url("https://www.udemy.com/staticx/udemy/fonts/SuisseWorks-Bold-v1.woff2")

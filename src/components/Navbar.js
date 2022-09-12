@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import {
   Language,
   Menu,
@@ -6,31 +6,20 @@ import {
   ShoppingCartOutlined,
 } from "@mui/icons-material";
 import styles from "./Navbar.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import SearchForm from "./SearchForm";
 function Navbar() {
-  const navigate = useNavigate();
-  let searchFormRef = useRef(null);
-  let inputRef = useRef(null);
-  useEffect(() => {
-    searchFormRef.current.addEventListener("submit", (event) => {
-      event.preventDefault();
-      let search = inputRef.current.value;
-
-      if (search) navigate(`/?search=${search}`);
-      else navigate(`/`);
-    });
-  }, [navigate]);
   return (
     <>
       <nav className="d-flex d-md-none">
-        <ul className={`${styles.navbar} p-1`}>
+        <ul className={styles.navbar} style={{ padding: "4px" }}>
           <li>
-            <button className="mybtn whiteBg link">
+            <button className={styles.linkBtn}>
               <Menu />
             </button>
           </li>
           <li>
-            <div className="linkSpace"></div>
+            <div style={{ width: "48px" }}></div>
           </li>
           <li className={styles.udemyLogoContainer}>
             <Link to="/">
@@ -42,12 +31,12 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <button className="mybtn whiteBg link">
+            <button className={styles.linkBtn}>
               <Search />
             </button>
           </li>
           <li>
-            <button className="mybtn whiteBg link">
+            <button className={styles.linkBtn}>
               <ShoppingCartOutlined />
             </button>
           </li>
@@ -65,44 +54,34 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <button className="mybtn whiteBg link">Categories</button>
+            <button className={styles.linkBtn}>Categories</button>
           </li>
-          <li className={styles.search}>
-            <form action="" ref={searchFormRef}>
-              <input
-                ref={inputRef}
-                className={styles.textInput}
-                type="text"
-                placeholder="Search for anything"
-              />
-              <button className="mybtn whiteBg link" type="submit">
-                <Search />
-              </button>
-            </form>
+          <li style={{ width: "100%", margin: "12px" }}>
+            <SearchForm />
           </li>
           <li className={styles.hideAt1080}>
-            <button className="mybtn whiteBg link">Udemy Business</button>
+            <button className={styles.linkBtn}>Udemy Business</button>
           </li>
           <li className={styles.hideAt920}>
-            <button className="mybtn whiteBg link">Teach on Udemy</button>
+            <button className={styles.linkBtn}>Teach on Udemy</button>
           </li>
           <li>
-            <button className="mybtn whiteBg link">
+            <button className={styles.linkBtn}>
               <ShoppingCartOutlined />
             </button>
           </li>
           <li>
-            <button className="mybtn whiteBg box">
+            <button className={styles.loginBtn}>
               <b>Log in</b>
             </button>
           </li>
           <li>
-            <button className="mybtn blackBg box">
+            <button className={styles.signupBtn}>
               <b>Sign up</b>
             </button>
           </li>
           <li>
-            <button className="mybtn whiteBg icon box">
+            <button className={styles.iconBtn}>
               <Language fontSize="small" />
             </button>
           </li>

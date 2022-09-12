@@ -29,3 +29,17 @@
   height: 40px;
   border-radius: 100%;
 }
+
+.whiteBg {
+  background-color: transparent;
+}
+.whiteBg:hover {
+  background-color: var(--light);
+}
+.blackBg {
+  background-color: var(--dark);
+  color: white;
+}
+.blackBg:hover {
+  background-color: black;
+}

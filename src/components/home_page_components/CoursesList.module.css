@@ -21,6 +21,17 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+.trackHead button {
+  background-color: transparent;
+  border: 1px solid var(--dark);
+  margin: 0 4px;
+  padding: 0 12px;
+  height: 40px;
+  width: max-content;
+}
+.trackHead button:hover {
+  background-color: var(--light);
+}
 .courseItem {
   padding: 0 8px;
 }

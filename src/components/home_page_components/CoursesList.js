@@ -27,7 +27,7 @@ function CoursesList({ track, courses }) {
             <b>{track.header}</b>
           </h2>
           <p>{track.description}</p>
-          <button className="mybtn whiteBg box">
+          <button>
             <b>Explore {track.name}</b>
           </button>
         </div>

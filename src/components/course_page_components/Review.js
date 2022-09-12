@@ -80,14 +80,16 @@ function Review({ review }) {
           </Box>
           <div>
             <button
-              className={` ${styles.circleBtn} ${like ? "blackBg" : "whiteBg"}`}
+              className={`${styles.circleBtn} ${
+                like ? styles.blackBg : styles.whiteBg
+              }`}
               onClick={onLikeClick}
             >
               <ThumbUpOffAlt />
             </button>
             <button
-              className={` ${styles.circleBtn} ${
-                dislike ? "blackBg" : "whiteBg"
+              className={`${styles.circleBtn} ${
+                dislike ? styles.blackBg : styles.whiteBg
               }`}
               onClick={onDislikeClick}
             >

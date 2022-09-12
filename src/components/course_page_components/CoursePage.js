@@ -9,6 +9,7 @@ import CourseReviews from "./CourseReviews";
 import styles from "./CoursePage.module.css";
 import withData from "../../contexts/WithData";
 import PageNotFound from "../PageNotFound";
+import CourseFixedBar from "./CourseFixedBar";
 function CoursePage({ courses }) {
   const { courseId } = useParams();
   const id = parseInt(courseId);
@@ -20,6 +21,7 @@ function CoursePage({ courses }) {
   if (course)
     return (
       <div className={styles.page}>
+        <CourseFixedBar course={course} />
         <CourseSideBar course={course} />
         <CourseHeader course={course} />
         <main>

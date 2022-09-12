@@ -18,32 +18,52 @@
   flex: 1;
 }
 
-.search {
-  border-radius: 24px;
-  border-width: 1px;
-  border-color: var(--dark);
-  border-style: solid;
-  height: fit-content;
-  margin: 12px;
-  background-color: var(--light);
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
+@media only screen and (max-width: 800px) {
+  .link:hover {
+    color: initial;
+  }
 }
-.search form {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  width: 100%;
-}
-.textInput {
-  border: 0;
-  outline: none;
-  margin: 0 24px 0 0px;
+.loginBtn {
   background-color: transparent;
-  width: 100%;
+  border: 1px solid var(--dark);
+  margin: 0 4px;
+  height: 40px;
+  width: 80px;
 }
-
+.loginBtn:hover {
+  background-color: var(--light);
+}
+.signupBtn {
+  background-color: var(--dark);
+  color: white;
+  border: 1px solid var(--dark);
+  margin: 0 4px;
+  height: 40px;
+  width: 80px;
+}
+.signupBtn:hover {
+  background-color: black;
+}
+.iconBtn {
+  background-color: transparent;
+  border: 1px solid var(--dark);
+  margin: 0 4px;
+  height: 40px;
+  width: 40px;
+}
+.iconBtn:hover {
+  background-color: var(--light);
+}
+.linkBtn {
+  border: 0;
+  min-width: max-content;
+  background-color: transparent;
+  padding: 0 12px;
+  height: 48px;
+}
+.linkBtn:hover {
+  color: var(--purple);
+}
 @media only screen and (max-width: 1080px) {
   .hideAt1080 {
     display: none;
