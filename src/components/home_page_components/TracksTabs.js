@@ -20,7 +20,7 @@ function TracksTabs({ tracks }) {
       </TabList>
       {tracks.map((track) => (
         <TabPanel key={track.id}>
-          <CoursesList track={track}></CoursesList>
+          <CoursesList track={track} />
         </TabPanel>
       ))}
     </Tabs>

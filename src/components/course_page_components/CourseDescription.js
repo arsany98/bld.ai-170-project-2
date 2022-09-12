@@ -38,7 +38,7 @@ function CourseDescription({ id, courses }) {
             <Box
               mb={4}
               dangerouslySetInnerHTML={{ __html: course.description }}
-            ></Box>
+            />
           </div>
           <div>
             <h2>

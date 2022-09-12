@@ -61,7 +61,7 @@ function CourseSideBar({ id, courses }) {
                     <Star
                       fontSize="inherit"
                       style={{ color: "var(--light-yellow)", fontSize: "18" }}
-                    ></Star>
+                    />
                   </Box>
                   <Box className={styles.link}>
                     ({course.rateCount.toLocaleString("en-US")} ratings)

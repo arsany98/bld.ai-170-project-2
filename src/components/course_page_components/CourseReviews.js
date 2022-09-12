@@ -27,12 +27,12 @@ function CourseReviews({ id, courses }) {
               <b>{Math.round(course.rating * 10) / 10}</b>
             </Box>
             <Rating
-              icon={<Star fontSize="small"></Star>}
+              icon={<Star fontSize="small" />}
               emptyIcon={
                 <StarBorder
                   fontSize="small"
                   style={{ color: "var(--yellow)" }}
-                ></StarBorder>
+                />
               }
               value={course.rating}
               sx={{ color: "var(--yellow)" }}
@@ -53,7 +53,7 @@ function CourseReviews({ id, courses }) {
                 alignItems="center"
                 cursor="pointer"
                 mb={1}
-                color="#6a6f73"
+                color="var(--grey)"
               >
                 <Box width="100%" mr={1} height={8}>
                   <LinearProgress
@@ -64,12 +64,12 @@ function CourseReviews({ id, courses }) {
                   />
                 </Box>
                 <Rating
-                  icon={<Star fontSize="small"></Star>}
+                  icon={<Star fontSize="small" />}
                   emptyIcon={
                     <StarBorder
                       fontSize="small"
                       style={{ color: "var(--yellow)" }}
-                    ></StarBorder>
+                    />
                   }
                   value={r.rating}
                   sx={{ color: "var(--yellow)" }}
@@ -89,7 +89,7 @@ function CourseReviews({ id, courses }) {
           <b>Reviews</b>
         </h2>
         {course.reviews.map((r) => (
-          <Review key={r.id} review={r}></Review>
+          <Review key={r.id} review={r} />
         ))}
       </div>
     </>

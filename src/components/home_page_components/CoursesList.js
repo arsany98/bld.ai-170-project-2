@@ -62,7 +62,7 @@ function CoursesList({ track, courses }) {
             }}
           >
             {filteredCourses.map((c) => (
-              <Course key={c} id={c}></Course>
+              <Course key={c} id={c} />
             ))}
           </Carousel>
         )}

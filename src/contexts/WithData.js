@@ -12,7 +12,7 @@ const withData =
     } else if (db.Error) {
       return <div>{db.Error}</div>;
     } else if (db.Data) {
-      return <Component {...props} {...db.Data}></Component>;
+      return <Component {...props} {...db.Data} />;
     }
   };
 export default withData;

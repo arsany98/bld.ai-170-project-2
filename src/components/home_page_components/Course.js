@@ -29,7 +29,7 @@ function Course({ id, courses }) {
           </h3>
           <p className={styles.subtextFont}>{render(course.instructors)}</p>
           <div className={styles.rating}>
-            <span style={{ color: "#b4690e", fontSize: "14" }}>
+            <span style={{ color: "var(--dark-yellow)", fontSize: "14" }}>
               <b>{Math.round(course.rating * 10) / 10}</b>
             </span>
 
@@ -37,11 +37,11 @@ function Course({ id, courses }) {
               emptyIcon={
                 <StarBorder
                   fontSize="inherit"
-                  style={{ color: "#e59819" }}
-                ></StarBorder>
+                  style={{ color: "var(--yellow)" }}
+                />
               }
               value={course.rating}
-              sx={{ fontSize: 16, color: "#e59819" }}
+              sx={{ fontSize: 16, color: "var(--yellow)" }}
               readOnly
               precision={0.5}
             />

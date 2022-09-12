@@ -13,12 +13,9 @@ function App() {
       <Navbar />
       <DbContextProvider>
         <Routes>
-          <Route path="/" element={<Main></Main>}></Route>
-          <Route
-            path="/courses/:courseId"
-            element={<CoursePage></CoursePage>}
-          ></Route>
-          <Route path="*" element={<div>404 not found</div>}></Route>
+          <Route path="/" element={<Main />} />
+          <Route path="/courses/:courseId" element={<CoursePage />} />
+          <Route path="*" element={<div>404 not found</div>} />
         </Routes>
       </DbContextProvider>
       <Footer />

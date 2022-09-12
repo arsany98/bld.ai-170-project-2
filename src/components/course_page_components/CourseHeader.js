@@ -92,7 +92,7 @@ function CourseHeader({ id, courses }) {
                       <StarBorder
                         fontSize="inherit"
                         style={{ color: "var(--light-yellow)" }}
-                      ></StarBorder>
+                      />
                     }
                     value={course.rating}
                     sx={{ color: "var(--light-yellow)", fontSize: 16 }}

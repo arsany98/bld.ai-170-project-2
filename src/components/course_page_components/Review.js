@@ -58,15 +58,15 @@ function Review({ review }) {
           </Box>
           <Box display="flex" mb={1}>
             <Rating
-              icon={<Star fontSize="small"></Star>}
+              icon={<Star fontSize="small" />}
               emptyIcon={
                 <StarBorder
                   fontSize="small"
-                  style={{ color: "#e59819" }}
-                ></StarBorder>
+                  style={{ color: "var(--yellow)" }}
+                />
               }
               value={review.rating}
-              sx={{ color: "#e59819" }}
+              sx={{ color: "var(--yellow)" }}
               readOnly
               precision={0.5}
             />
