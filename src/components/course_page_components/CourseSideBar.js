@@ -9,15 +9,13 @@ import {
   Smartphone,
   Star,
 } from "@mui/icons-material";
-import { Box, Stack } from "@mui/material";
+import { Box, Skeleton, Stack } from "@mui/material";
 import React from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
-import withData from "../../contexts/WithData";
 import styles from "./CourseSideBar.module.css";
 
-function CourseSideBar({ id, courses }) {
-  const course = courses.find((c) => c.id === id);
+function CourseSideBar({ course }) {
   let sideBarRef = useRef(null);
   const onScroll = () => {
     if (document.documentElement.scrollTop > 450) {
@@ -69,7 +67,11 @@ function CourseSideBar({ id, courses }) {
                 </Stack>
               </a>
               <Box>
-                {course.num_subscribers.toLocaleString("en-US")} students
+                {course.num_subscribers ? (
+                  course.num_subscribers.toLocaleString("en-US") + " students"
+                ) : (
+                  <Skeleton sx={{ bgcolor: "var(--grey)", width: "10vw" }} />
+                )}
               </Box>
             </Stack>
           </Box>
@@ -155,7 +157,8 @@ function CourseSideBar({ id, courses }) {
                 ) : (
                   <></>
                 )}
-                {course.intencives.lifetime === true ? (
+
+                {course.intencives?.lifetime ? (
                   <Box py={0.5}>
                     <AllInclusive
                       fontSize="inherit"
@@ -166,7 +169,7 @@ function CourseSideBar({ id, courses }) {
                 ) : (
                   <></>
                 )}
-                {course.intencives.access ? (
+                {course.intencives?.access ? (
                   <Box py={0.5}>
                     <Smartphone
                       fontSize="inherit"
@@ -177,7 +180,7 @@ function CourseSideBar({ id, courses }) {
                 ) : (
                   <></>
                 )}
-                {course.intencives.Assignments ? (
+                {course.intencives?.Assignments ? (
                   <Box py={0.5}>
                     <Assignment
                       fontSize="inherit"
@@ -188,7 +191,7 @@ function CourseSideBar({ id, courses }) {
                 ) : (
                   <></>
                 )}
-                {course.intencives.certification ? (
+                {course.intencives?.certification ? (
                   <Box py={0.5}>
                     <EmojiEventsOutlined
                       fontSize="inherit"
@@ -219,4 +222,4 @@ function CourseSideBar({ id, courses }) {
   );
 }
 
-export default withData(CourseSideBar);
+export default CourseSideBar;

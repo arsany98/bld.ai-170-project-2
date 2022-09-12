@@ -8,9 +8,15 @@ const withData =
   ({ ...props }) => {
     const db = useContext(DbContext);
     if (db.IsLoading) {
-      return <CircularProgress color="inherit" />;
+      return (
+        <div style={{ textAlign: "center", padding: "24px" }}>
+          <CircularProgress color="inherit" />
+        </div>
+      );
     } else if (db.Error) {
-      return <div>{db.Error}</div>;
+      return (
+        <div style={{ textAlign: "center", padding: "24px" }}>{db.Error}</div>
+      );
     } else if (db.Data) {
       return <Component {...props} {...db.Data} />;
     }

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import withData from "../../contexts/WithData";
 import { StarBorder } from "@mui/icons-material";
 
-function render(instructors) {
+function renderInstructors(instructors) {
   let str = "";
   if (instructors)
     instructors.forEach((i, idx) => {
@@ -27,7 +27,9 @@ function Course({ id, courses }) {
           <h3>
             <b>{course.title}</b>
           </h3>
-          <p className={styles.subtextFont}>{render(course.instructors)}</p>
+          <p className={styles.subtextFont}>
+            {renderInstructors(course.instructors)}
+          </p>
           <div className={styles.rating}>
             <span style={{ color: "var(--dark-yellow)", fontSize: "14" }}>
               <b>{Math.round(course.rating * 10) / 10}</b>

@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import styles from "./CourseHeader.module.css";
-import withData from "../../contexts/WithData";
 import {
   ClosedCaption,
   Language,
@@ -8,19 +7,18 @@ import {
   NewReleases,
   StarBorder,
 } from "@mui/icons-material";
-import { Box, Breadcrumbs, Link, Rating, Stack } from "@mui/material";
-function CourseHeader({ id, courses }) {
-  const course = courses.find((c) => c.id === id);
+import { Box, Breadcrumbs, Link, Rating, Skeleton, Stack } from "@mui/material";
+function CourseHeader({ course }) {
   const [extraLang, setextraLang] = useState();
 
-  let date = course.last_update_date.split("-");
+  let date = course.last_update_date?.split("-");
   let showMoreRef = useRef(null);
   const showExtraLanguages = () => {
     showMoreRef.current.remove();
     setextraLang(
       <span>
         {course.caption_languages
-          .slice(2)
+          ?.slice(2)
           .map((i, index) =>
             index < course.caption_languages.length - 3 ? `${i}, ` : i
           )}
@@ -40,7 +38,7 @@ function CourseHeader({ id, courses }) {
               color="white"
               sx={{ fontSize: 14, mb: 1 }}
             >
-              {course.topics.map((t) => (
+              {course.topics?.map((t) => (
                 <Link
                   key={t.id}
                   href="#"
@@ -54,7 +52,7 @@ function CourseHeader({ id, courses }) {
                 >
                   <b>{t.topic}</b>
                 </Link>
-              ))}
+              )) || <Skeleton sx={{ bgcolor: "var(--grey)", width: "25vw" }} />}
             </Breadcrumbs>
           </div>
           <Box mb={1}>
@@ -69,7 +67,7 @@ function CourseHeader({ id, courses }) {
             <b>{course.title}</b>
           </h1>
           <div style={{ fontSize: 19, marginBottom: 16 }}>
-            {course.headline}
+            {course.headline || <Skeleton sx={{ bgcolor: "var(--grey)" }} />}
           </div>
           <Stack direction="row" spacing={1} alignItems="center">
             <div>
@@ -105,46 +103,66 @@ function CourseHeader({ id, courses }) {
                 </Box>
               </Stack>
             </a>
-            <Box>{course.num_subscribers.toLocaleString("en-US")} students</Box>
-          </Stack>
-          <div>
-            Created by{" "}
-            {course.instructors.map((i, index) => (
-              <span key={i.url}>
-                <span className={styles.link}>{i.title}</span>
-                {index < course.instructors.length - 1 ? ", " : ""}
-              </span>
-            ))}
-          </div>
-          <Box display="flex" className={styles.videoInfoList}>
-            <div style={{ whiteSpace: "nowrap" }}>
-              <NewReleases fontSize="inherit" sx={{ mr: 1, fontSize: 16 }} />
-              Last updated {parseInt(date[1])}/{parseInt(date[0])}
-            </div>
-            <div style={{ whiteSpace: "nowrap" }}>
-              <Language fontSize="inherit" sx={{ mr: 1, fontSize: 16 }} />
-              {course.locale}
-            </div>
-            <div>
-              <ClosedCaption fontSize="inherit" sx={{ mr: 1, fontSize: 16 }} />
-              {course.caption_languages.length > 2 ? (
-                <>
-                  {course.caption_languages.slice(0, 2).map((i) => `${i}, `)}
-                  <button
-                    className={styles.linkBtn}
-                    ref={showMoreRef}
-                    onClick={showExtraLanguages}
-                  >
-                    {course.caption_languages.length - 2} more
-                  </button>
-                  {extraLang}
-                </>
+            <Box>
+              {course.num_subscribers ? (
+                course.num_subscribers.toLocaleString("en-US") + " students"
               ) : (
-                course.caption_languages.map((i, index) =>
-                  index < course.caption_languages.length - 1 ? `${i}, ` : i
-                )
+                <Skeleton sx={{ bgcolor: "var(--grey)", width: "10vw" }} />
               )}
-            </div>
+            </Box>
+          </Stack>
+          <Box>
+            {course.instructors && "Created by "}
+            {course.instructors ? (
+              course.instructors.map((i, index) => (
+                <span key={i.url}>
+                  <span className={styles.link}>{i.title}</span>
+                  {index < course.instructors.length - 1 ? ", " : ""}
+                </span>
+              ))
+            ) : (
+              <Skeleton sx={{ bgcolor: "var(--grey)" }} />
+            )}
+          </Box>
+          <Box display="flex" className={styles.videoInfoList}>
+            <Stack direction="row" style={{ whiteSpace: "nowrap" }}>
+              <NewReleases fontSize="inherit" sx={{ mr: 1, fontSize: 16 }} />
+              {date ? (
+                "Last updated " + parseInt(date[1]) + "/" + parseInt(date[0])
+              ) : (
+                <Skeleton sx={{ bgcolor: "var(--grey)", width: "5vw" }} />
+              )}
+            </Stack>
+            <Stack direction="row" style={{ whiteSpace: "nowrap" }}>
+              <Language fontSize="inherit" sx={{ mr: 1, fontSize: 16 }} />
+              {course.locale || (
+                <Skeleton sx={{ bgcolor: "var(--grey)", width: "5vw" }} />
+              )}
+            </Stack>
+            <Stack direction="row" flexWrap="wrap">
+              <ClosedCaption fontSize="inherit" sx={{ mr: 1, fontSize: 16 }} />
+              {course.caption_languages ? (
+                course.caption_languages.length > 2 ? (
+                  <>
+                    {course.caption_languages.slice(0, 2).map((i) => `${i}, `)}
+                    <button
+                      className={styles.linkBtn}
+                      ref={showMoreRef}
+                      onClick={showExtraLanguages}
+                    >
+                      {course.caption_languages.length - 2} more
+                    </button>
+                    {extraLang}
+                  </>
+                ) : (
+                  course.caption_languages.map((i, index) =>
+                    index < course.caption_languages.length - 1 ? `${i}, ` : i
+                  )
+                )
+              ) : (
+                <Skeleton sx={{ bgcolor: "var(--grey)", width: "5vw" }} />
+              )}
+            </Stack>
           </Box>
           <div className={styles.purchase}>
             <div className={styles.price}>
@@ -179,4 +197,4 @@ function CourseHeader({ id, courses }) {
   );
 }
 
-export default withData(CourseHeader);
+export default CourseHeader;

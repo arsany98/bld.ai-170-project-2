@@ -1,20 +1,18 @@
 import { Star, StarBorder } from "@mui/icons-material";
-import { Box, LinearProgress, Rating, Stack } from "@mui/material";
+import { Box, LinearProgress, Rating, Skeleton, Stack } from "@mui/material";
 import React from "react";
-import withData from "../../contexts/WithData";
 import Review from "./Review";
 
-function CourseReviews({ id, courses }) {
-  const course = courses.find((c) => c.id === id);
+function CourseReviews({ course }) {
   let sum = 0;
-  course.reviews_context.ratingDistribution.forEach((element) => {
+  course.reviews_context?.ratingDistribution.forEach((element) => {
     sum += element.count;
   });
-  let ratings = course.reviews_context.ratingDistribution.map((r) => ({
+  let ratings = course.reviews_context?.ratingDistribution.map((r) => ({
     rating: r.rating,
     percent: Math.round((r.count / sum) * 100),
   }));
-  ratings.reverse();
+  ratings?.reverse();
   return (
     <>
       <div id="reviews">
@@ -46,7 +44,7 @@ function CourseReviews({ id, courses }) {
             </Box>
           </Box>
           <Stack width="100%" pl={4}>
-            {ratings.map((r) => (
+            {ratings?.map((r) => (
               <Stack
                 direction="row"
                 key={r.rating}
@@ -80,7 +78,15 @@ function CourseReviews({ id, courses }) {
                   {r.percent}%
                 </Box>
               </Stack>
-            ))}
+            )) || (
+              <>
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+              </>
+            )}
           </Stack>
         </Box>
       </div>
@@ -88,12 +94,19 @@ function CourseReviews({ id, courses }) {
         <h2>
           <b>Reviews</b>
         </h2>
-        {course.reviews.map((r) => (
-          <Review key={r.id} review={r} />
-        ))}
+        {course.reviews?.map((r) => <Review key={r.id} review={r} />) || (
+          <>
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+          </>
+        )}
       </div>
     </>
   );
 }
 
-export default withData(CourseReviews);
+export default CourseReviews;

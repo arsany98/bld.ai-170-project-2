@@ -1,10 +1,8 @@
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
-import { Box, Collapse } from "@mui/material";
+import { Box, Collapse, Skeleton } from "@mui/material";
 import React, { useState } from "react";
-import withData from "../../contexts/WithData";
 import styles from "./CourseDescription.module.css";
-function CourseDescription({ id, courses }) {
-  const course = courses.find((c) => c.id === id);
+function CourseDescription({ course }) {
   const [Show, setShow] = useState(false);
   const onShowClick = () => {
     setShow((old) => !old);
@@ -16,9 +14,11 @@ function CourseDescription({ id, courses }) {
           <b>Requirements</b>
         </h2>
         <ul>
-          {course.requirements.map((r) => (
-            <li key={r.id}>{r.title}</li>
-          ))}
+          {course.requirements?.map((r) => <li key={r.id}>{r.title}</li>) || (
+            <>
+              <Skeleton /> <Skeleton />
+            </>
+          )}
         </ul>
       </div>
       <div>
@@ -35,19 +35,31 @@ function CourseDescription({ id, courses }) {
             <h2>
               <b>Description</b>
             </h2>
-            <Box
-              mb={4}
-              dangerouslySetInnerHTML={{ __html: course.description }}
-            />
+            {course.description ? (
+              <Box
+                mb={4}
+                dangerouslySetInnerHTML={{
+                  __html: course.description,
+                }}
+              ></Box>
+            ) : (
+              <>
+                <Skeleton /> <Skeleton />
+              </>
+            )}
           </div>
           <div>
             <h2>
               <b>Who this course is for:</b>
             </h2>
             <ul>
-              {course.who_this_course_is_for.map((w) => (
+              {course.who_this_course_is_for?.map((w) => (
                 <li key={w.id}>{w.title}</li>
-              ))}
+              )) || (
+                <>
+                  <Skeleton /> <Skeleton />
+                </>
+              )}
             </ul>
           </div>
         </Collapse>
@@ -60,4 +72,4 @@ function CourseDescription({ id, courses }) {
   );
 }
 
-export default withData(CourseDescription);
+export default CourseDescription;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Course from "./Course";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -10,11 +10,14 @@ import withData from "../../contexts/WithData";
 function CoursesList({ track, courses }) {
   const [searchParams] = useSearchParams();
   let search = searchParams.get("search");
-  let filteredCourses = track.courses.filter((cId) => {
-    if (!search) return true;
-    let course = courses.find((course) => course.id === cId);
-    return course.title.toLowerCase().includes(search.toLowerCase());
-  });
+  let Courses = useMemo(() => {
+    let filteredCourses = track.courses.filter((cId) => {
+      if (!search) return true;
+      let course = courses.find((course) => course.id === cId);
+      return course.title.toLowerCase().includes(search.toLowerCase());
+    });
+    return filteredCourses;
+  }, [search, courses, track.courses]);
 
   return (
     <>
@@ -28,7 +31,7 @@ function CoursesList({ track, courses }) {
             <b>Explore {track.name}</b>
           </button>
         </div>
-        {filteredCourses.length === 0 ? (
+        {Courses.length === 0 ? (
           <div className={styles.noCourses}>No Results Found.</div>
         ) : (
           <Carousel
@@ -61,7 +64,7 @@ function CoursesList({ track, courses }) {
               },
             }}
           >
-            {filteredCourses.map((c) => (
+            {Courses.map((c) => (
               <Course key={c} id={c} />
             ))}
           </Carousel>

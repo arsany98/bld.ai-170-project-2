@@ -4,9 +4,14 @@ import DbContext from "./DbContext";
 async function fetchData() {
   let url = `http://localhost:3001/tracks`;
   let response = await fetch(url);
+  if (response.status >= 400)
+    throw Error(`${response.status}  ${response.statusText}`);
   let tracks = await response.json();
   url = `http://localhost:3001/courses`;
   response = await fetch(url);
+  if (response.status >= 400)
+    throw Error(`${response.status}  ${response.statusText}`);
+
   let courses = await response.json();
   return { tracks, courses };
 }
@@ -31,8 +36,11 @@ function DbContextProvider({ children }) {
       .then((data) => {
         dispatch({ type: "SUCCESS", payload: data });
       })
-      .catch(() => {
-        dispatch({ type: "FAILURE", payload: "Error: Something Went Wrong" });
+      .catch((error) => {
+        dispatch({
+          type: "FAILURE",
+          payload: `Server Error ${error.message}`,
+        });
       });
   }, []);
   return <DbContext.Provider value={state}>{children}</DbContext.Provider>;

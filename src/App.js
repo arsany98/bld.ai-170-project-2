@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CoursePage from "./components/course_page_components/CoursePage";
 import DbContextProvider from "./contexts/DbContextProvider";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/courses/:courseId" element={<CoursePage />} />
-          <Route path="*" element={<div>404 not found</div>} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </DbContextProvider>
       <Footer />
