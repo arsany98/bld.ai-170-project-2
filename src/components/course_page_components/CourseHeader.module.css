@@ -54,6 +54,7 @@
   background-color: transparent;
   color: white;
   height: 40px;
+  height: fit-content;
 }
 .purchase {
   display: none;

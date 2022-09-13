@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useRef } from "react";
 import DbContext from "./DbContext";
 
 async function fetchData() {
@@ -16,6 +16,7 @@ async function fetchData() {
   return { tracks, courses };
 }
 function DbContextProvider({ children }) {
+  const loaded = useRef(false);
   const [state, dispatch] = useReducer(
     (oldState, action) => {
       if (action.type === "SEND_REQUEST") {
@@ -31,17 +32,22 @@ function DbContextProvider({ children }) {
     { Data: undefined, IsLoading: false, Error: "" }
   );
   useEffect(() => {
-    dispatch({ type: "SEND_REQUEST" });
-    fetchData()
-      .then((data) => {
-        dispatch({ type: "SUCCESS", payload: data });
-      })
-      .catch((error) => {
-        dispatch({
-          type: "FAILURE",
-          payload: `Server Error ${error.message}`,
+    if (!loaded.current) {
+      dispatch({ type: "SEND_REQUEST" });
+      fetchData()
+        .then((data) => {
+          dispatch({ type: "SUCCESS", payload: data });
+        })
+        .catch((error) => {
+          dispatch({
+            type: "FAILURE",
+            payload: `Server Error ${error.message}`,
+          });
         });
-      });
+      return () => {
+        loaded.current = true;
+      };
+    }
   }, []);
   return <DbContext.Provider value={state}>{children}</DbContext.Provider>;
 }

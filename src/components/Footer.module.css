@@ -51,7 +51,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 64px 0 32px 0;
+  padding: 64px 0 80px 0;
 }
 .copyright {
   color: white;
@@ -65,7 +65,7 @@
     display: block;
   }
   .logoAndCopyright {
-    padding: 16px 0;
+    padding: 16px 0 80px;
   }
   .logo {
     padding: 16px 0;
