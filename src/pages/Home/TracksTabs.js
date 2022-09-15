@@ -1,5 +1,5 @@
 import React from "react";
-import CoursesList from "./CoursesList";
+import CoursesList from "../../components/CoursesList";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import styles from "./TracksTabs.module.css";

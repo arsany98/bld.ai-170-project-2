@@ -1,11 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Main from "./components/home_page_components/Main";
+import Home from "./pages/Home";
+import Course from "./pages/Course";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import CoursePage from "./components/course_page_components/CoursePage";
 import DbContextProvider from "./contexts/DbContextProvider";
-import PageNotFound from "./components/PageNotFound";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
       <Navbar />
       <DbContextProvider>
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/courses/:courseId" element={<CoursePage />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/courses/:courseId" element={<Course />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </DbContextProvider>

@@ -3,7 +3,7 @@ import React from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import styles from "./CourseSideBar.module.css";
-import Incentives from "./Incentives";
+import Incentives from "../../components/Incentives";
 
 function CourseSideBar({ course }) {
   let sideBarRef = useRef(null);

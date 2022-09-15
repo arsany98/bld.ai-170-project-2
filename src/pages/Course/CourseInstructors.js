@@ -1,6 +1,6 @@
 import { Skeleton } from "@mui/material";
 import React from "react";
-import Instuctor from "./Instructor";
+import Instuctor from "../../components/Instructor";
 function CourseInstructors({ course }) {
   return (
     <div>

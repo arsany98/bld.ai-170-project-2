@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Course.module.css";
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
-import withData from "../../contexts/WithData";
+import withData from "../contexts/WithData";
 import { StarBorder } from "@mui/icons-material";
 
 function renderInstructors(instructors) {

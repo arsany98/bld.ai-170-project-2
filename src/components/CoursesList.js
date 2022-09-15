@@ -5,7 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 import styles from "./CoursesList.module.css";
 import "./CarouselStyles.css";
 import { useSearchParams } from "react-router-dom";
-import withData from "../../contexts/WithData";
+import withData from "../contexts/WithData";
 
 function CoursesList({ track, courses }) {
   const [searchParams] = useSearchParams();

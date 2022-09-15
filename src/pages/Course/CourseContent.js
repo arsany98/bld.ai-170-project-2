@@ -10,32 +10,10 @@ import {
   Skeleton,
   Stack,
 } from "@mui/material";
+import roundMinutes from "../../utils/roundMinutes";
 function CourseContent({ course }) {
   const courseContent = course.curriculum_context?.data;
   let contentLength = courseContent?.estimated_content_length_text.split(":");
-  let roundMin = (s) => {
-    let t = s.split(":");
-    let h = 0;
-    let m = 0;
-    if (t.length === 3 && parseInt(t[0]) !== 0) {
-      h = parseInt(t[0]);
-      m = parseInt(t[1]);
-      s = parseInt(t[2]);
-      if (s >= 30) m++;
-    } else if (t.length === 2) {
-      m = parseInt(t[0]);
-      s = parseInt(t[1]);
-      if (s >= 30) m++;
-    }
-    let length = "";
-    if (h) {
-      length += h;
-      length += "hr ";
-    }
-    length += m;
-    length += "min";
-    return length;
-  };
   return (
     <>
       <div style={{ padding: 24, border: "1px solid var(--light-grey)" }}>
@@ -104,7 +82,7 @@ function CourseContent({ course }) {
                       </div>
                       <div className={styles.info}>
                         {s.lecture_count} lectures •{" "}
-                        {roundMin(s.content_length_text)}
+                        {roundMinutes(s.content_length_text)}
                       </div>
                     </div>
                   </AccordionSummary>

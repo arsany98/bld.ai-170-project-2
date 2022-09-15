@@ -62,11 +62,7 @@
 .img {
   display: none;
 }
-.videoInfoList {
-  flex-direction: row;
-  gap: 16px;
-  flex-wrap: wrap;
-}
+
 @media only screen and (max-width: 1180px) {
   .header {
     max-width: 600px;
@@ -84,11 +80,6 @@
   }
   .purchase {
     display: block;
-  }
-  .videoInfoList {
-    margin: 8px 0;
-    flex-direction: column;
-    gap: 8px;
   }
 }
 @media only screen and (max-width: 700px) {

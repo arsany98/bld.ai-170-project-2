@@ -1,7 +1,7 @@
 import { Star, StarBorder } from "@mui/icons-material";
 import { Box, LinearProgress, Rating, Skeleton, Stack } from "@mui/material";
 import React from "react";
-import Review from "./Review";
+import Review from "../../components/Review";
 
 function CourseReviews({ course }) {
   let sum = 0;
