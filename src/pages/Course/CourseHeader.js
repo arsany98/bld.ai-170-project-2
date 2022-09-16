@@ -3,6 +3,8 @@ import styles from "./CourseHeader.module.css";
 import { NavigateNext, StarBorder } from "@mui/icons-material";
 import { Box, Breadcrumbs, Link, Rating, Skeleton, Stack } from "@mui/material";
 import VideoInfoList from "./VideoInfoList";
+import getInstructorsNames from "../../utils/getInstructorsNames";
+
 function CourseHeader({ course }) {
   return (
     <header className={styles.darkBg}>
@@ -93,12 +95,7 @@ function CourseHeader({ course }) {
           <Box>
             {course.instructors && "Created by "}
             {course.instructors ? (
-              course.instructors.map((i, index) => (
-                <span key={i.url}>
-                  <span className={styles.link}>{i.title}</span>
-                  {index < course.instructors.length - 1 ? ", " : ""}
-                </span>
-              ))
+              getInstructorsNames(course.instructors, styles.link)
             ) : (
               <Skeleton sx={{ bgcolor: "var(--grey)" }} />
             )}

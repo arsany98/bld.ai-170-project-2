@@ -24,6 +24,9 @@
   text-decoration: underline;
   color: var(--light-purple);
 }
+.link:hover {
+  color: var(--light-purple);
+}
 .addToCartBtn {
   border: 0;
   width: 100%;

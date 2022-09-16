@@ -4,16 +4,8 @@ import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 import withData from "../contexts/WithData";
 import { StarBorder } from "@mui/icons-material";
+import getInstructorsNames from "../utils/getInstructorsNames";
 
-function renderInstructors(instructors) {
-  let str = "";
-  if (instructors)
-    instructors.forEach((i, idx) => {
-      if (idx < instructors.length - 1) str += i.display_name + ", ";
-      else str += i.display_name;
-    });
-  return str;
-}
 function Course({ id, courses }) {
   let course = courses.find((c) => c.id === id);
   return (
@@ -28,7 +20,7 @@ function Course({ id, courses }) {
             <b>{course.title}</b>
           </h3>
           <p className={styles.subtextFont}>
-            {renderInstructors(course.instructors)}
+            {getInstructorsNames(course.instructors)}
           </p>
           <div className={styles.rating}>
             <span style={{ color: "var(--dark-yellow)", fontSize: "14" }}>
