@@ -1,0 +1,30 @@
+.search {
+  border-radius: 24px;
+  border-width: 1px;
+  border-color: var(--dark);
+  border-style: solid;
+  background-color: var(--light);
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
+.textInput {
+  border: 0;
+  outline: none;
+  margin-right: 24px;
+  background-color: transparent;
+  width: 100%;
+}
+.linkBtn {
+  cursor: pointer;
+  border: 0;
+  min-width: max-content;
+  background-color: transparent;
+  padding: 0 12px;
+  height: 48px;
+}
+.linkBtn:hover {
+  color: var(--purple);
+}

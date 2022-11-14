@@ -1,0 +1,34 @@
+.userImage {
+  background-color: var(--dark);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  width: 112px;
+  height: 112px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.imgAndStats {
+  display: flex;
+  align-items: center;
+}
+.showbtn {
+  border: 0;
+  color: var(--purple);
+  background-color: white;
+}
+.showbtn:hover {
+  color: var(--hover-purple);
+}
+.name {
+  cursor: pointer;
+  text-decoration: underline;
+  border: 0;
+  color: var(--purple);
+  font-size: 19px;
+}
+.name:hover {
+  color: var(--hover-purple);
+}

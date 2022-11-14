@@ -1,0 +1,45 @@
+.review {
+  display: flex;
+  padding: 16px 0 24px;
+  border-bottom: 1px solid var(--light-grey);
+}
+.reviewContent {
+  display: flex;
+  flex-direction: column;
+}
+.reviewAvatar {
+  padding-right: 24px;
+}
+.userImage {
+  background-color: var(--dark);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.circleBtn {
+  margin-right: 8px;
+  border: 1px solid var(--dark);
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.whiteBg {
+  background-color: transparent;
+}
+.whiteBg:hover {
+  background-color: var(--light);
+}
+.blackBg {
+  background-color: var(--dark);
+  color: white;
+}
+.blackBg:hover {
+  background-color: black;
+}

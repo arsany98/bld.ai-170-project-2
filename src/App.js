@@ -1,11 +1,25 @@
-import "./App.css";
-import CoursesList from "./components/CoursesList";
-import db from "./courses_db.json";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Course from "./pages/Course";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import DbContextProvider from "./contexts/DbContextProvider";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
-    <div className="App">
-      <CoursesList track={db.tracks[0]}></CoursesList>
+    <div>
+      <Navbar />
+      <DbContextProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/courses/:courseId" element={<Course />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </DbContextProvider>
+      <Footer />
     </div>
   );
 }

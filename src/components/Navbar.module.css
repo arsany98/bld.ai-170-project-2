@@ -1,0 +1,84 @@
+.navbar {
+  box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+  display: flex;
+  list-style: none;
+  align-items: center;
+  margin-bottom: 0;
+  width: 100%;
+  min-width: var(--min-width);
+  background-color: white;
+  z-index: 3;
+}
+.udemyLogo {
+  height: 34px;
+  width: 91px;
+}
+.udemyLogoContainer {
+  text-align: center;
+  flex: 1;
+}
+
+@media only screen and (max-width: 800px) {
+  .link:hover {
+    color: initial;
+  }
+}
+.loginBtn {
+  background-color: transparent;
+  border: 1px solid var(--dark);
+  margin: 0 4px;
+  height: 40px;
+  width: 80px;
+}
+.loginBtn:hover {
+  background-color: var(--light);
+}
+.signupBtn {
+  background-color: var(--dark);
+  color: white;
+  border: 1px solid var(--dark);
+  margin: 0 4px;
+  height: 40px;
+  width: 80px;
+}
+.signupBtn:hover {
+  background-color: black;
+}
+.iconBtn {
+  background-color: transparent;
+  border: 1px solid var(--dark);
+  margin: 0 4px;
+  height: 40px;
+  width: 40px;
+}
+.iconBtn:hover {
+  background-color: var(--light);
+}
+.linkBtn {
+  border: 0;
+  min-width: max-content;
+  background-color: transparent;
+  padding: 0 12px;
+  height: 48px;
+}
+.linkBtn:hover {
+  color: var(--purple);
+}
+@media only screen and (max-width: 1080px) {
+  .hideAt1080 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .hideAt920 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .udemyLogo {
+    max-width: 75px;
+    width: 100%;
+  }
+}
